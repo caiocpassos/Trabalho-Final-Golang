@@ -193,3 +193,64 @@ func Insert(w http.ResponseWriter, r *http.Request) {
 	//Retorna a HOME
 	http.Redirect(w, r, "/", 301)
 }
+
+func Update(w http.ResponseWriter, r *http.Request) {
+
+	// Abre a conexão com o banco de dados usando a função: dbConn()
+	db := dbConn()
+
+	// Verifica o METHOD do formulário passado
+	if r.Method == "POST" {
+
+		// Pega os campos do formulário
+		nome := r.FormValue("nome")
+		autor := r.FormValue("autor")
+		numPaginas := r.FormValue("numPaginas")
+		genero := r.FormValue("genero")
+		id := r.FormValue("id")
+
+		// Prepara a SQL e verifica errors
+		insForm, err := db.Prepare("UPDATE livros SET nome=?, autor=?, num_paginas=?, genero=? WHERE id=?")
+		if err != nil {
+			panic(err.Error())
+		}
+
+		// Insere valores do formulário com a SQL tratada e verifica erros
+		insForm.Exec(nome, autor, numPaginas, genero, id)
+
+		// Exibe um log com os valores digitados no formulario
+		log.Println("UPDATE: Nome: " + nome + " | Autor: " + autor + " | NumPaginas: " + numPaginas + " | Genero: " + genero + " | ID: " + id)
+	}
+
+	// Encerra a conexão do dbConn()
+	defer db.Close()
+
+	// Retorna a HOME
+	http.Redirect(w, r, "/", 301)
+}
+
+func Delete(w http.ResponseWriter, r *http.Request) {
+
+	// Abre conexão com banco de dados usando a função: dbConn()
+	db := dbConn()
+
+	nId := r.URL.Query().Get("id")
+
+	// Prepara a SQL e verifica errors
+	delForm, err := db.Prepare("DELETE FROM livros WHERE id=?")
+	if err != nil {
+		panic(err.Error())
+	}
+
+	// Insere valores do form com a SQL tratada e verifica errors
+	delForm.Exec(nId)
+
+	// Exibe um log com os valores digitados no form
+	log.Println("DELETE")
+
+	// Encerra a conexão do dbConn()
+	defer db.Close()
+
+	// Retorna a HOME
+	http.Redirect(w, r, "/", 301)
+}

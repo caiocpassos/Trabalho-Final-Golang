@@ -1,0 +1,32 @@
+{{ define "Edit" }}
+    {{ template "Header" .}}
+        {{ template "Menu" .}}
+        <div class="formulario">
+            <div class="tituloForm">
+                <h2>Editar dados do livro "{{ .Nome }}"</h2>
+            </div>
+
+        <form method="POST" action="update">
+            <input  type="hidden" name="id" value="{{ .Id }}" />
+
+            <label> Nome </label>
+            <input  class="inputTexto" type="text" name="nome" value="{{ .Nome }}" /><br />
+            <label> Autor </label>
+
+            <label> Autor </label>
+            <input  class="inputTexto" type="text" name="autor" value="{{ .Autor }}" /><br />
+
+            <label> Número de Páginas </label>
+            <input class="inputTexto" type="text" name="numPaginas" value="{{ .NumPaginas }}" /><br />
+
+            <label> Genero </label>
+            <input class="inputTexto" type="text" name="genero" value="{{ .Genero }}" /><br />
+
+            <div class="divBotao" >
+                <input class="botao" type="submit" value="Salvar Livro" />
+        </form>
+        <a class="deletar"href="/delete?id={{ .Id }}">Deletar</a>
+        </div>
+        </div>
+    {{ template "Footer" .}}
+{{ end }}

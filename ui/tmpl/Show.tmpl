@@ -1,0 +1,15 @@
+{{ define "Show" }}
+  {{ template "Header" .}}
+    {{ template "Menu" .}}
+
+    <div class="visualizar">
+    <h2> Registro {{ .Id }} - "{{.Nome}}"</h2>
+      <p>Autor:  {{ .Autor }}</p>
+      <p>Número de Páginas:  {{ .NumPaginas }}</p>
+      <p>Gênero:  {{ .Genero }}</p>
+      <div class="divEdDel">
+      <br /> <a class="editar" href="/edit?id={{ .Id }}">Editar</a></p><a class="deletar" href="/delete?id={{ .Id }}">Deletar</a>
+      </div>
+      </div>
+  {{ template "Footer" .}}
+{{ end }}

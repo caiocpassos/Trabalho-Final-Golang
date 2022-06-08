@@ -1,0 +1,25 @@
+{{ define "New" }}
+  {{ template "Header" .}}
+    {{ template "Menu" .}}
+    <div class="formulario">
+    <div class="tituloForm">
+        <h2>Insira aqui os dados do livro</h2>
+    </div>
+    <form  method="POST" action="insert">
+
+
+      <label> Titulo </label><input class="inputTexto" type="text" name="nome" /><br />
+
+      <label> Autor </label><input class="inputTexto" type="text" name="autor" /><br />
+
+      <label> Número de Páginas </label><input class="inputTexto" type="number" name="numPaginas" /><br />
+
+      <label> Gênero </label><input class="inputTexto"  type="text" name="genero" /><br />
+
+       <div class="divBotao">
+      <input class="botao" type="submit" value="Salvar livro" />
+       </div>
+       </div>
+    </form>
+  {{ template "Footer" .}}
+{{ end }}
