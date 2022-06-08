@@ -76,7 +76,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	defer db.Close()
 }
 
-func Show(w http.ResponseWriter, r http.Request) {
+func Show(w http.ResponseWriter, r *http.Request) {
 	db := dbConn()
 
 	// Pega o ID do parametro da URL
@@ -118,7 +118,7 @@ func Show(w http.ResponseWriter, r http.Request) {
 	defer db.Close()
 }
 
-func Edit(w http.ResponseWriter, r http.Request) {
+func Edit(w http.ResponseWriter, r *http.Request) {
 	// Abre a conexão com banco de dados
 	db := dbConn()
 
@@ -194,6 +194,10 @@ func Insert(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", 301)
 }
 
+func New(w http.ResponseWriter, r *http.Request) {
+	tmpl.ExecuteTemplate(w, "New", nil)
+}
+
 func Update(w http.ResponseWriter, r *http.Request) {
 
 	// Abre a conexão com o banco de dados usando a função: dbConn()
@@ -253,4 +257,28 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 
 	// Retorna a HOME
 	http.Redirect(w, r, "/", 301)
+}
+
+func main() {
+
+	// Exibe mensagem que o servidor foi iniciado
+	log.Println("Server started on: http://localhost:9000")
+
+	// Gerencia as URLs
+	http.HandleFunc("/", Index)
+	http.HandleFunc("/show", Show)
+	http.HandleFunc("/new", New)
+	http.HandleFunc("/edit", Edit)
+
+	// Ações
+	http.HandleFunc("/insert", Insert)
+	http.HandleFunc("/update", Update)
+	http.HandleFunc("/delete", Delete)
+
+	fileServer := http.FileServer(http.Dir("./ui/static/"))
+	http.Handle("/static/", http.StripPrefix("/static", fileServer))
+
+	// Inicia o servidor na porta 9000
+	http.ListenAndServe(":9000", nil)
+
 }
