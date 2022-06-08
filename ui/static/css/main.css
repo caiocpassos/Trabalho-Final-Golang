@@ -1,0 +1,234 @@
+* {
+    align-items: center;
+    font-family:"Monospace Monaco";
+
+}
+p{
+    color: #045782;
+    font-weight: bold;
+}
+table {
+    width: 70%;
+}
+table a{
+    text-decoration: none;
+    color: #3877a4;
+    align-items: center;
+    justify-content: center;
+
+}
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #dff9ff;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+/* TABELA*/
+.tabela{
+    background-color: whitesmoke;
+    color: black;
+    border: 2px solid #3877a4;
+    border-radius: 5px;
+    text-align: center;
+}
+
+th{
+    height: 50px;
+    text-align: left;
+    background-color: #4CAF50;
+    border: 2px solid #3877a4;
+    color: #3877a4;
+    font-weight: bold;
+}
+td{
+    padding: 5px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border: 2px solid #3877a4;
+    border-radius: 2px;
+}
+
+.tituloTabela{
+    background-color: #3877a4;
+    color: #dff9ff;
+}
+
+/* ****** */
+h1{
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.titulo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #045782;
+    font-weight: bold;
+}
+/* MENU*/
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#3877a4;
+    height: 50px;
+    width: 101%;
+    color:#dff9ff;
+    border-radius: 8px;
+    font-weight: bold;
+}
+.menu a{
+    color:#dff9ff;
+    margin-left: 2%;
+    text-decoration: none;
+    font-family: "Roboto";
+}
+
+.homeLink{
+    margin-right: 85px;
+}
+.cadastroLink{
+    margin-left: 85px;
+}
+
+
+/*IMAGEM LOGO*/
+.imagens{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.bookCaseImg{
+    width: 300px;
+    height: 100px;
+}
+.LivrosImg{
+    width: 110px;
+    height: 90px;
+    margin-right: -50px;
+}
+/*******/
+.container{
+    height: 20rem;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #dff9ff;
+    border-radius: 25px;
+}
+
+.inputTexto{
+    border-radius: 10px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    height: 40px;
+    border: none;
+    align-content: center;
+
+}
+
+.divBotao{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 20px;
+    margin-right: 35px;
+    justify-content: space-around;
+}
+.botao{
+    height: 30px;
+    width: 90px;
+    align-self: center;
+    border-radius: 10px;
+    color: #045782;
+    background-color: #dff9ff;
+    border: none;
+    font-weight: bold;
+
+}
+.formulario{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 50%;
+    background-color: #3877a4;
+    padding-right: 10px;
+    padding-left:20px ;
+    margin-top: 30px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #dff9ff;
+    align-content: center;
+}
+
+.tituloForm{
+    align-self: center;
+}
+.deletar{
+    height: 30px;
+    width: 90px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #C23B22;
+    background-color:#ff6961;
+    border: none;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+
+}
+
+/*Show*/
+
+.visualizar{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 50%;
+    background-color: #3877a4;
+    padding-right: 10px;
+    padding-left:20px ;
+    margin-top: 30px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #dff9ff;
+    align-content: center;
+}
+.visualizar p{
+    color: #dff9ff;
+}
+.editar{
+    height: 30px;
+    width: 90px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #045782;
+    background-color:#dff9ff;
+    border: none;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    margin-left: -40px;
+}
+
+.divEdDel{
+    display: flex;
+    flex-direction: row;
+    margin-top: 45px;
+    margin-right: 35px;
+    justify-content: space-around;
+
+}
